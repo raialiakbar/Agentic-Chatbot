@@ -6,14 +6,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.message import add_messages
+import os
+
+load_dotenv()
+
+api_key = os.getenv("GOOGLE_API_KEY")
 
 
 load_dotenv()
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-3.8-flash",
-    google_api_key="AQ.Ab8RN6LKGMopEBbJsApCbQ7vJsUhGRh8t7qVq-oVbywXiE--wQ"
-)
+    google_api_key="api_key")
 
 
 class ChatState(TypedDict):

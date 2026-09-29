@@ -8,16 +8,12 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.message import add_messages
 import os
 
-load_dotenv()
-
+load_dotenv(override=True)
 api_key = os.getenv("GOOGLE_API_KEY")
-
-
-load_dotenv()
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-3.8-flash",
-    google_api_key="api_key")
+    google_api_key=api_key)
 
 
 class ChatState(TypedDict):
